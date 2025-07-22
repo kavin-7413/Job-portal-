@@ -16,11 +16,352 @@
             padding: 0;
             line-height: 1.6;
         }
-        /* ... trimmed styles for brevity ... */
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            color: #ecf0f1;
+        }
+
+        header nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        header nav a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        header nav a:hover {
+            color: #3498db;
+        }
+
+        main {
+            padding: 40px 0;
+        }
+
+        .search-filter-section {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            margin-bottom: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: flex-end;
+        }
+
+        .search-filter-section .form-group {
+            flex: 1 1 200px;
+            min-width: 180px;
+        }
+
+        .search-filter-section label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .search-filter-section input[type="text"],
+        .search-filter-section select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-filter-section input[type="text"]:focus,
+        .search-filter-section select:focus {
+            border-color: #3498db;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+
+        .search-filter-section button {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-weight: 600;
+        }
+
+        .search-filter-section button:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .job-listings {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .job-card {
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .job-card h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+            color: #2c3e50;
+        }
+
+        .job-card p {
+            margin-bottom: 8px;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .job-card .meta {
+            font-size: 0.85rem;
+            color: #888;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            margin-top: 20px;
+        }
+
+        .job-card .meta span {
+            margin-right: 15px;
+        }
+
+        .job-card .meta span:last-child {
+            margin-right: 0;
+        }
+
+        .job-card .apply-button {
+            display: inline-block;
+            background-color: #28a745; /* Green color for apply button */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-align: center;
+        }
+
+        .job-card .apply-button:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            header nav ul {
+                margin-top: 15px;
+                justify-content: center;
+            }
+
+            .search-filter-section {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-filter-section .form-group {
+                flex: 1 1 100%;
+            }
+
+            .search-filter-section button {
+                width: 100%;
+            }
+
+            .job-listings {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- ... HTML content ... -->
+    <header>
+        <div class="container">
+            <h1>JobFinder</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Post a Job</a></li>
+                    <li><a href="#">Login / Register</a></li>
+                    <li><a href="#">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="search-filter-section">
+                <div class="form-group">
+                    <label for="keywords">Keywords</label>
+                    <input type="text" id="keywords" placeholder="e.g., Software Engineer, Marketing">
+                </div>
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" id="location" placeholder="e.g., New York, Remote">
+                </div>
+                <div class="form-group">
+                    <label for="job-type">Job Type</label>
+                    <select id="job-type">
+                        <option value="">All Types</option>
+                        <option value="full-time">Full-time</option>
+                        <option value="part-time">Part-time</option>
+                        <option value="contract">Contract</option>
+                        <option value="internship">Internship</option>
+                    </select>
+                </div>
+                <button type="submit">Search Jobs</button>
+            </section>
+
+            <section class="job-listings">
+                <div class="job-card">
+                    <div>
+                        <h3>Senior Software Engineer</h3>
+                        <p><strong>Tech Solutions Inc.</strong> - San Francisco, CA</p>
+                        <p>Developing scalable backend services and APIs for our flagship product.</p>
+                    </div>
+                    <div class="meta">
+                        <span>Full-time</span>
+                        <span>Experience: 5+ years</span>
+                        <span>Posted: 2 days ago</span>
+                    </div>
+                    <a href="apply.html?job=senior-software-engineer" class="apply-button">Apply Now</a>
+                </div>
+
+                <div class="job-card">
+                    <div>
+                        <h3>Marketing Specialist</h3>
+                        <p><strong>Creative Minds Agency</strong> - Remote</p>
+                        <p>Manage digital marketing campaigns, content creation, and social media presence.</p>
+                    </div>
+                    <div class="meta">
+                        <span>Full-time</span>
+                        <span>Experience: 2-4 years</span>
+                        <span>Posted: 1 week ago</span>
+                    </div>
+                    <a href="apply.html?job=marketing-specialist" class="apply-button">Apply Now</a>
+                </div>
+
+                <div class="job-card">
+                    <div>
+                        <h3>UX/UI Designer</h3>
+                        <p><strong>Innovate Design Studio</strong> - Austin, TX</p>
+                        <p>Design intuitive and engaging user interfaces for web and mobile applications.</p>
+                    </div>
+                    <div class="meta">
+                        <span>Contract</span>
+                        <span>Experience: 3+ years</span>
+                        <span>Posted: 4 days ago</span>
+                    </div>
+                    <a href="apply.html?job=ux-ui-designer" class="apply-button">Apply Now</a>
+                </div>
+
+                <div class="job-card">
+                    <div>
+                        <h3>Data Analyst Intern</h3>
+                        <p><strong>Global Insights Corp.</strong> - New York, NY</p>
+                        <p>Assist in collecting, cleaning, and analyzing large datasets to derive actionable insights.</p>
+                    </div>
+                    <div class="meta">
+                        <span>Internship</span>
+                        <span>Experience: Entry-level</span>
+                        <span>Posted: 3 days ago</span>
+                    </div>
+                    <a href="apply.html?job=data-analyst-intern" class="apply-button">Apply Now</a>
+                </div>
+
+                <div class="job-card">
+                    <div>
+                        <h3>Product Manager</h3>
+                        <p><strong>NextGen Solutions</strong> - Seattle, WA</p>
+                        <p>Define product vision, strategy, and roadmap, working closely with engineering and design teams.</p>
+                    </div>
+                    <div class="meta">
+                        <span>Full-time</span>
+                        <span>Experience: 7+ years</span>
+                        <span>Posted: 1 day ago</span>
+                    </div>
+                    <a href="apply.html?job=product-manager" class="apply-button">Apply Now</a>
+                </div>
+
+                <div class="job-card">
+                    <div>
+                        <h3>Customer Support Representative</h3>
+                    </div>
+                    <p><strong>HelpDesk Heroes</strong> - Remote</p>
+                    <p>Provide excellent customer service and technical support via email, chat, and phone.</p>
+                    <div class="meta">
+                        <span>Part-time</span>
+                        <span>Experience: 1+ years</span>
+                        <span>Posted: 5 days ago</span>
+                    </div>
+                    <a href="apply.html?job=customer-support-representative" class="apply-button">Apply Now</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
     <footer>
         <div class="container">
             <p>Done by Madhankumar.V & Kavinvishnu.S.J</p>
